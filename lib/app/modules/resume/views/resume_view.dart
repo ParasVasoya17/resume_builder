@@ -50,13 +50,14 @@ class ResumeView extends GetView<ResumeController> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Row(
+                            mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(Icons.email, size: 14.w),
+                              Icon(Icons.email, size: 10.w),
                               2.horizontalSpace,
                               AppText(
                                 controller.resumeData!.email.text,
-                                fontSize: 14.sp,
+                                fontSize: 10.sp,
                                 fontFamily: FontFamily.regular,
                                 color: AppColors.black,
                                 fontWeight: FontWeight.w500,
@@ -67,11 +68,11 @@ class ResumeView extends GetView<ResumeController> {
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(Icons.phone, size: 14.w),
+                              Icon(Icons.phone, size: 10.w),
                               2.horizontalSpace,
                               AppText(
                                 controller.resumeData!.phone.text,
-                                fontSize: 14.sp,
+                                fontSize: 10.sp,
                                 fontFamily: FontFamily.regular,
                                 color: AppColors.black,
                                 fontWeight: FontWeight.w500,
@@ -82,11 +83,11 @@ class ResumeView extends GetView<ResumeController> {
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(Icons.location_on, size: 14.w),
+                              Icon(Icons.location_on, size: 10.w),
                               2.horizontalSpace,
                               AppText(
                                 controller.resumeData!.address.text,
-                                fontSize: 14.sp,
+                                fontSize: 10.sp,
                                 fontFamily: FontFamily.regular,
                                 color: AppColors.black,
                                 fontWeight: FontWeight.w500,
@@ -102,19 +103,186 @@ class ResumeView extends GetView<ResumeController> {
                 10.verticalSpace,
                 AppText(
                   AppStrings.profile,
-                  fontSize: 22.sp,
+                  fontSize: 20.sp,
                   fontFamily: FontFamily.regular,
                   color: AppColors.babyBlue,
                   fontWeight: FontWeight.w500,
                 ),
                 Divider(color: AppColors.black, thickness: 0.5.h),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 5.h),
+                      child: Icon(Icons.circle, size: 10.w),
+                    ),
+                    4.horizontalSpace,
+                    Expanded(
+                      child: AppText(
+                        controller.resumeData!.profile.text,
+                        fontSize: 16.sp,
+                        fontFamily: FontFamily.regular,
+                        color: AppColors.black,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+                20.verticalSpace,
                 AppText(
-                  controller.resumeData!.profile.text,
-                  fontSize: 18.sp,
+                  AppStrings.skills,
+                  fontSize: 20.sp,
                   fontFamily: FontFamily.regular,
-                  color: AppColors.black,
+                  color: AppColors.babyBlue,
                   fontWeight: FontWeight.w500,
                 ),
+                Divider(color: AppColors.black, thickness: 0.5.h),
+                ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: controller.resumeData!.skillsList.length,
+                    itemBuilder: (context, index) {
+                      return Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(top: 5.h),
+                            child: Icon(Icons.circle, size: 10.w),
+                          ),
+                          4.horizontalSpace,
+                          Expanded(
+                            child: AppText(
+                              controller.resumeData!.skillsList[index].text,
+                              fontSize: 16.sp,
+                              fontFamily: FontFamily.regular,
+                              color: AppColors.black,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      );
+                    }),
+                20.verticalSpace,
+                AppText(
+                  AppStrings.education,
+                  fontSize: 20.sp,
+                  fontFamily: FontFamily.regular,
+                  color: AppColors.babyBlue,
+                  fontWeight: FontWeight.w500,
+                ),
+                Divider(color: AppColors.black, thickness: 0.5.h),
+                ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: controller.resumeData!.educationsLength.value,
+                    itemBuilder: (context, index) {
+                      return Row(
+                        children: [
+                          Icon(Icons.circle, size: 10.w),
+                          4.horizontalSpace,
+                          AppText(
+                            controller.resumeData!.educationNameList[index].text,
+                            fontSize: 16.sp,
+                            fontFamily: FontFamily.regular,
+                            color: AppColors.black,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          Spacer(),
+                          AppText(
+                            "(${controller.resumeData!.educationYearList[index].text})",
+                            fontSize: 16.sp,
+                            fontFamily: FontFamily.regular,
+                            color: AppColors.black,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ],
+                      );
+                    }),
+                20.verticalSpace,
+                AppText(
+                  AppStrings.experience,
+                  fontSize: 20.sp,
+                  fontFamily: FontFamily.regular,
+                  color: AppColors.babyBlue,
+                  fontWeight: FontWeight.w500,
+                ),
+                Divider(color: AppColors.black, thickness: 0.5.h),
+                ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: controller.resumeData!.experiencesLength.value,
+                    itemBuilder: (context, index) {
+                      return Row(
+                        children: [
+                          Icon(Icons.circle, size: 10.w),
+                          4.horizontalSpace,
+                          AppText(
+                            controller.resumeData!.experienceNameList[index].text,
+                            fontSize: 16.sp,
+                            fontFamily: FontFamily.regular,
+                            color: AppColors.black,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          Spacer(),
+                          AppText(
+                            "(${controller.resumeData!.experienceYearList[index].text})",
+                            fontSize: 16.sp,
+                            fontFamily: FontFamily.regular,
+                            color: AppColors.black,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ],
+                      );
+                    }),
+                20.verticalSpace,
+                AppText(
+                  AppStrings.project,
+                  fontSize: 20.sp,
+                  fontFamily: FontFamily.regular,
+                  color: AppColors.babyBlue,
+                  fontWeight: FontWeight.w500,
+                ),
+                Divider(color: AppColors.black, thickness: 0.5.h),
+                ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: controller.resumeData!.projectsLength.value,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          AppText(
+                            controller.resumeData!.projectNameList[index].text,
+                            fontSize: 18.sp,
+                            fontFamily: FontFamily.regular,
+                            color: AppColors.black,
+                            fontWeight: FontWeight.w800,
+                          ),
+                          4.verticalSpace,
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(top: 5.h),
+                                child: Icon(Icons.circle, size: 10.w),
+                              ),
+                              4.horizontalSpace,
+                              Expanded(
+                                child: AppText(
+                                  controller.resumeData!.projectDetailsList[index].text,
+                                  fontSize: 16.sp,
+                                  fontFamily: FontFamily.regular,
+                                  color: AppColors.black,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                          6.verticalSpace,
+                        ],
+                      );
+                    }),
               ],
             ),
           ),

@@ -23,7 +23,8 @@ class AppStrings {
   static const String project = "Projects";
   static const String education = "Education";
   static const String educationDetails = "Education Details";
-  static const String educationYear = "Year";
+  static const String educationYear = "Education Year";
+  static const String companyName = "Company name";
   static const String experience = "Experience";
   static const String experienceDetails = "Experience Details";
   static const String experienceYear = "Experience Year";
