@@ -10,6 +10,7 @@ void main() {
     ScreenUtilInit(
         minTextAdapt: true,
         splitScreenMode: true,
+        designSize: const Size(392, 872),
         builder: (context, child) {
           return GetMaterialApp(
             title: "Application",

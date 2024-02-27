@@ -7,6 +7,7 @@ export 'package:resume_builder_flutter/app/utils/app_fontfamily.dart';
 export 'package:resume_builder_flutter/app/utils/get_storage_data.dart';
 export 'package:resume_builder_flutter/app/widgets/app_text.dart';
 export 'package:resume_builder_flutter/app/widgets/common_textfield.dart';
+export 'package:resume_builder_flutter/app/widgets/common_button.dart';
 
 export 'app_colors.dart';
 export 'app_strings.dart';

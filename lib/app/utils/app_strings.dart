@@ -12,4 +12,24 @@ class Constants {
 
 class AppStrings {
   static const String flutterSdkVersion = "3.16.0";
+  static const String resumeDetails = "Resume Details";
+  static const String fullName = "Full name";
+  static const String designation = "Designation";
+  static const String phone = "Phone Number";
+  static const String email = "Email";
+  static const String address = "Address";
+  static const String profile = "Profile summery";
+  static const String skills = "Skills";
+  static const String project = "Projects";
+  static const String education = "Education";
+  static const String educationDetails = "Education Details";
+  static const String educationYear = "Year";
+  static const String experience = "Experience";
+  static const String experienceDetails = "Experience Details";
+  static const String experienceYear = "Experience Year";
+  static const String projectName = "Project name";
+  static const String projectDetails = "Project details";
+
+  static const String createResume = "Create Resume";
+  static const String resume = "Resume";
 }

@@ -113,7 +113,7 @@ class _CommonTextFiledState extends State<CommonTextFiled> {
             fontWeight: FontWeight.w500,
           ),
           contentPadding: EdgeInsets.symmetric(vertical: 14.h, horizontal: widget.prefixIcon == null ? 15.w : 2.w),
-          fillColor: widget.fillColor ?? AppColors.black,
+          fillColor: widget.fillColor ?? AppColors.white,
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.r),
