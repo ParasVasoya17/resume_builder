@@ -33,4 +33,5 @@ class AppStrings {
 
   static const String createResume = "Create Resume";
   static const String resume = "Resume";
+  static const String remove = "Remove";
 }
