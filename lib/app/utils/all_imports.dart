@@ -9,5 +9,4 @@ export 'package:resume_builder_flutter/app/widgets/app_text.dart';
 export 'package:resume_builder_flutter/app/widgets/common_textfield.dart';
 
 export 'app_colors.dart';
-export 'app_images.dart';
 export 'app_strings.dart';

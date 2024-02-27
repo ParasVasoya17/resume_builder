@@ -38,7 +38,7 @@ class CommonTextFiled extends StatefulWidget {
     this.enabled = true,
     this.textInputAction = TextInputAction.next,
     this.keyboardType = TextInputType.text,
-    this.titleColor = AppColors.darkBlueText,
+    this.titleColor = AppColors.black,
     this.fillColor,
     this.borderColor,
     this.title = "",
@@ -74,7 +74,7 @@ class _CommonTextFiledState extends State<CommonTextFiled> {
         focusNode: widget.focusNode,
         keyboardType: widget.keyboardType,
         autofocus: widget.autofocus,
-        style: TextStyle(color: AppColors.text1BlueColor, fontFamily: FontFamily.semiBold, fontSize: 14.sp, fontWeight: FontWeight.w600),
+        style: TextStyle(color: AppColors.black, fontFamily: FontFamily.semiBold, fontSize: 14.sp, fontWeight: FontWeight.w600),
         decoration: InputDecoration(
           hintText: widget.hintText ?? "",
           prefixIcon: widget.prefixIcon == null
@@ -95,174 +95,41 @@ class _CommonTextFiledState extends State<CommonTextFiled> {
                     onTap: toggle,
                     child: Container(
                       margin: EdgeInsets.all(14.sp),
-                      child: Image.asset(
-                        widget.obscureText ? AppImages.eyeSlash : AppImages.eye,
-                        height: 24.h,
-                        width: 24.w,
-                      ),
+                      height: 24.h,
+                      width: 24.w,
+                      child: widget.obscureText ? const Icon(Icons.remove_red_eye) : const Icon(Icons.remove_red_eye_outlined),
                     ),
                   )),
           hintStyle: TextStyle(
-            color: AppColors.text4BlueColor,
+            color: AppColors.black,
             fontFamily: FontFamily.medium,
             fontSize: 14.sp,
             fontWeight: FontWeight.w500,
           ),
           labelStyle: TextStyle(
-            color: AppColors.text4BlueColor,
+            color: AppColors.black,
             fontFamily: FontFamily.medium,
             fontSize: 14.sp,
             fontWeight: FontWeight.w500,
           ),
           contentPadding: EdgeInsets.symmetric(vertical: 14.h, horizontal: widget.prefixIcon == null ? 15.w : 2.w),
-          fillColor: widget.fillColor ?? AppColors.textButton,
+          fillColor: widget.fillColor ?? AppColors.black,
           filled: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.r),
-            borderSide: BorderSide(color: widget.borderColor ?? AppColors.buttonOutline),
+            borderSide: BorderSide(color: widget.borderColor ?? AppColors.black),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.r),
-            borderSide: BorderSide(color: widget.borderColor ?? AppColors.buttonOutline),
+            borderSide: BorderSide(color: widget.borderColor ?? AppColors.black),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.r),
-            borderSide: BorderSide(color: widget.borderColor ?? AppColors.buttonOutline),
+            borderSide: BorderSide(color: widget.borderColor ?? AppColors.black),
           ),
           disabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.r),
-            borderSide: BorderSide(color: widget.borderColor ?? AppColors.buttonOutline),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-//ignore: must_be_immutable
-class CommonMultiLineTextFiled extends StatefulWidget {
-  final TextEditingController? controller;
-  final Function(String)? onChanged;
-  final String? hintText;
-  final String? prefixIcon;
-  final String? suffixText;
-  String title;
-  bool isTitle;
-  final Widget? suffixIcon;
-  final bool isMaxLines;
-  final int? maxLines;
-  final Color? titleColor;
-  final TextInputAction? textInputAction;
-  bool enabled;
-  bool obscureText;
-  bool suffixVisibility;
-  CommonMultiLineTextFiled({
-    super.key,
-    this.controller,
-    this.suffixIcon,
-    this.prefixIcon,
-    this.onChanged,
-    this.isMaxLines = false,
-    this.maxLines,
-    this.hintText,
-    this.obscureText = false,
-    this.suffixVisibility = false,
-    this.enabled = true,
-    this.textInputAction = TextInputAction.next,
-    this.titleColor = AppColors.darkBlueText,
-    this.title = "",
-    this.suffixText,
-    this.isTitle = true,
-  });
-
-  @override
-  State<CommonMultiLineTextFiled> createState() => _CommonMultiLineTextFiledState();
-}
-
-class _CommonMultiLineTextFiledState extends State<CommonMultiLineTextFiled> {
-  toggle() {
-    setState(() {
-      widget.obscureText = !widget.obscureText;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: TextFormField(
-        controller: widget.controller,
-        onChanged: widget.onChanged,
-        obscureText: widget.obscureText,
-        textInputAction: widget.textInputAction,
-        maxLines: widget.isMaxLines ? widget.maxLines : null,
-        enabled: widget.enabled,
-        style: TextStyle(
-          color: AppColors.text1BlueColor,
-          fontFamily: FontFamily.medium,
-          fontWeight: FontWeight.w500,
-          fontSize: 16.sp,
-        ),
-        decoration: InputDecoration(
-          hintText: widget.hintText ?? "",
-          prefixIcon: widget.prefixIcon == null
-              ? null
-              : Padding(
-                  padding: EdgeInsets.only(left: 15.w, right: 10.w),
-                  child: Image.asset(
-                    widget.prefixIcon!,
-                    height: 24.h,
-                    width: 24.w,
-                  ),
-                ),
-          suffixIcon: widget.suffixVisibility == false
-              ? widget.suffixIcon
-              : Visibility(
-                  visible: widget.suffixVisibility,
-                  child: GestureDetector(
-                    onTap: toggle,
-                    child: Container(
-                      margin: EdgeInsets.all(14.sp),
-                      child: Image.asset(
-                        widget.obscureText ? AppImages.eye : AppImages.eyeSlash,
-                        height: 24.h,
-                        width: 24.w,
-                      ),
-                    ),
-                  )),
-          hintStyle: TextStyle(
-            color: AppColors.text4BlueColor,
-            fontFamily: FontFamily.medium,
-            fontSize: 14.sp,
-            fontWeight: FontWeight.w500,
-          ),
-          labelStyle: TextStyle(
-            color: AppColors.text4BlueColor,
-            fontFamily: FontFamily.medium,
-            fontSize: 14.sp,
-            fontWeight: FontWeight.w500,
-          ),
-          suffixStyle: TextStyle(
-            color: AppColors.text4BlueColor,
-            fontFamily: FontFamily.medium,
-            fontSize: 14.sp,
-            fontWeight: FontWeight.w500,
-          ),
-          floatingLabelBehavior: FloatingLabelBehavior.auto,
-          suffixText: widget.suffixText ?? "",
-          contentPadding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 2.w),
-          fillColor: AppColors.textButton,
-          filled: true,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r),
-            borderSide: BorderSide.none,
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r),
-            borderSide: BorderSide.none,
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.r),
-            borderSide: BorderSide.none,
+            borderSide: BorderSide(color: widget.borderColor ?? AppColors.black),
           ),
         ),
       ),
